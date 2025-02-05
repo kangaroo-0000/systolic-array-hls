@@ -1,0 +1,146 @@
+
+
+================================================================
+== Vitis HLS Report for 'systolic_array_Pipeline_VITIS_LOOP_23_1'
+================================================================
+* Date:           Wed Feb  5 15:27:07 2025
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        final_systolic_array_hls
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu11p-flga2577-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  2.000 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_23_1  |        ?|        ?|         2|          1|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|        8|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|       36|    -|
+|Register             |        -|     -|      163|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|      163|       44|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3072|   864000|   432000|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9216|  2592000|  1296000|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |ap_block_state1_pp0_stage0_iter0  |       and|   0|  0|   2|           1|           1|
+    |tmp_nbreadreq_fu_32_p3            |       and|   0|  0|   2|           1|           0|
+    |ap_block_pp0_stage0_01001         |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0|   8|           4|           4|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |                                   Name                                  | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                                                              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1                                                  |   9|          2|    1|          2|
+    |inputStream_TDATA_blk_n                                                  |   9|          2|    1|          2|
+    |systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams_blk_n  |   9|          2|    1|          2|
+    +-------------------------------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                                                    |  36|          8|    4|          8|
+    +-------------------------------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+-----+----+-----+-----------+
+    |           Name          |  FF | LUT| Bits| Const Bits|
+    +-------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                |    1|   0|    1|          0|
+    |ap_done_reg              |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |    1|   0|    1|          0|
+    |inputStream_read_reg_56  |  160|   0|  160|          0|
+    +-------------------------+-----+----+-----+-----------+
+    |Total                    |  163|   0|  163|          0|
+    +-------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------------------------------------------------+-----+-----+------------+-------------------------------------------------------------------+--------------+
+|                                 RTL Ports                                | Dir | Bits|  Protocol  |                           Source Object                           |    C Type    |
++--------------------------------------------------------------------------+-----+-----+------------+-------------------------------------------------------------------+--------------+
+|ap_clk                                                                    |   in|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|ap_rst                                                                    |   in|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|ap_start                                                                  |   in|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|ap_done                                                                   |  out|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|ap_idle                                                                   |  out|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|ap_ready                                                                  |  out|    1|  ap_ctrl_hs|                            systolic_array_Pipeline_VITIS_LOOP_23_1|  return value|
+|inputStream_TVALID                                                        |   in|    1|        axis|                                                        inputStream|       pointer|
+|inputStream_TDATA                                                         |   in|  160|        axis|                                                        inputStream|       pointer|
+|inputStream_TREADY                                                        |  out|    1|        axis|                                                        inputStream|       pointer|
+|systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams_din     |  out|  160|     ap_fifo|  systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams|       pointer|
+|systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams_full_n  |   in|    1|     ap_fifo|  systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams|       pointer|
+|systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams_write   |  out|    1|     ap_fifo|  systolic_array_stream_MBItem_0_stream_MBItem_0_bool_int_peStreams|       pointer|
++--------------------------------------------------------------------------+-----+-----+------------+-------------------------------------------------------------------+--------------+
+

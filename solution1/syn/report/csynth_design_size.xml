@@ -1,0 +1,60 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">,   879, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll, 2153, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 1888, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 1765, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 1395, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition, 1607, user array partition pragmas are applied</column>
+            <column name="">(2) simplification, 1373, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate , 1373, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape, 1373, apply array reshape pragmas</column>
+            <column name="">(5) access patterns, 1420, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification, 1400, loop and instruction simplification</column>
+            <column name="">(2) parallelization, 1375, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 1375, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 1375, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering, 1392, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 1545, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="systolic_array" col1="systolic_array.cpp:3" col2="879" col3="1395" col4="1420" col5="1375" col6="1545">
+                    <row id="4" col0="PEState" col1="pe_state.h:28" col2="123" col3="" col4="" col5="" col6="">
+                        <row id="1" col0="MBItem" col1="mb_item.h:20" col2="30" col2_disp=" 30 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="MBItem" col1="mb_item.h:27" col2="30" col2_disp=" 30 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="5" col0="pe_cycle" col1="pe_cycle.h:111" col2="602" col3="" col4="" col5="" col6="">
+                        <row id="3" col0="debugPrintBuffer" col1="pe_cycle.h:21" col2="7" col2_disp="  7 (7 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="6" col0="passDown_loadPhase" col1="pe_cycle.h:86" col2="62" col3="" col4="" col5="" col6=""/>
+                        <row id="1" col0="MBItem" col1="mb_item.h:20" col2="15" col3="" col4="" col5="" col6=""/>
+                        <row id="7" col0="complexMul" col1="pe_cycle.h:14" col2="9" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="MBItem" col1="mb_item.h:27" col2="45" col2_disp=" 45 (3 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="2" col0="passDownWithPriority" col1="pe_cycle.h:49" col2="103" col3="" col4="" col5="" col6=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+
