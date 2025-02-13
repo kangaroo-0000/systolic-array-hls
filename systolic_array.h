@@ -2,16 +2,15 @@
 #define SYSTOLIC_ARRAY_H
 
 #include <hls_stream.h>
-#include <queue>
 #include "pe_cycle.h"
+#include "globals.h"
 
-// Define the number of Processing Elements (PEs)
-static const int NUM_PEs = 2;
-
-// Declare the top-level function for synthesis
+// Top-level function
 void systolic_array(
     hls::stream<MBItem> &inputStream,
     hls::stream<MBItem> &outputStream,
+    hls::stream<float> &aStream,
+    hls::stream<float> &bStream,
     bool accumulateMode,
     int totalCycles
 );
